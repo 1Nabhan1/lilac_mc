@@ -6,6 +6,8 @@ import 'package:lilac_mc_tst/generated/assets.dart';
 import 'package:lilac_mc_tst/presentation/total_vehicle/widget/total_vehicle_widget.dart';
 import 'package:lilac_mc_tst/routes/app_routes/app_routes.dart';
 
+import 'model/total_veh_datas.dart';
+
 class TotalVehicle extends StatelessWidget {
   const TotalVehicle({super.key});
 
@@ -26,6 +28,7 @@ class TotalVehicle extends StatelessWidget {
               physics: BouncingScrollPhysics(),
               scrollDirection: Axis.vertical,
               itemBuilder: (context, index) {
+                final img = TotalVehDatas.img[index];
                 return GestureDetector(
                   onTap: () => Get.toNamed(AppRoutes.vehicleDetailsScreen,
                       arguments: {'id': index + 1}),
@@ -44,7 +47,7 @@ class TotalVehicle extends StatelessWidget {
                             height: 150,
                             width: double.infinity,
                             child: Image.network(
-                              'https://test.vehup.com/user_assets/images/aboutUs.jpg',
+                              img,
                               fit: BoxFit.cover,
                             ),
                           ),
