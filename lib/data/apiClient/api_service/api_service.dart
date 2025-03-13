@@ -8,6 +8,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:lilac_mc_tst/data/apiClient/api_list/api_list.dart';
 import 'package:lilac_mc_tst/presentation/requirement_screen/modal/model_data.dart';
+import 'package:lilac_mc_tst/presentation/vehicle_details_inner/model/vehicle_details_model.dart';
 
 import '../../../presentation/requirement_screen/modal/brand_data_model.dart';
 import '../../../presentation/requirement_screen/modal/variant_data.dart';
@@ -119,6 +120,17 @@ class ApiService {
       final response = await httpMethod.get(url: ApiList.getVendorReq);
       final data = jsonDecode(response['body']);
       return VendorReq.fromJson(data);
+    } catch (e, s) {
+      log(e.toString(), error: e, stackTrace: s);
+      return null;
+    }
+  }
+
+  Future<VehicleDetailsModel?> fetchVehicleDetails(int id) async {
+    try {
+      final response = await httpMethod.get(url: "${ApiList.vehicleDetails}/$id");
+      final data = jsonDecode(response['body']);
+      return VehicleDetailsModel.fromJson(data);
     } catch (e, s) {
       log(e.toString(), error: e, stackTrace: s);
       return null;

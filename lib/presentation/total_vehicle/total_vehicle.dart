@@ -27,7 +27,8 @@ class TotalVehicle extends StatelessWidget {
               scrollDirection: Axis.vertical,
               itemBuilder: (context, index) {
                 return GestureDetector(
-                  onTap: () => Get.toNamed(AppRoutes.vehicleDetailsScreen),
+                  onTap: () => Get.toNamed(AppRoutes.vehicleDetailsScreen,
+                      arguments: {'id': index + 1}),
                   child: Card(
                     margin: EdgeInsets.all(8),
                     shape: RoundedRectangleBorder(

@@ -30,7 +30,8 @@ class HomeScreen extends GetView<HomeController> {
         ),
         actions: [
           GestureDetector(
-            onTap: () => controller.notification(),
+            onTap: ()
+            => controller.notification(),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: SvgPicture.asset(Assets.assetsNotification),
